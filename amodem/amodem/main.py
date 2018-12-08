@@ -1,6 +1,6 @@
 import itertools
 import logging
-
+import time
 import numpy as np
 
 from . import send as _send
@@ -45,7 +45,7 @@ def send(config, src, dst, gain=1.0):
             break
 
         send_bytes(config, data, dst, gain)
-
+	time.sleep(1)
     send_bytes(config, "", dst, gain)
     send_bytes(config, "", dst, gain)
     return True
