@@ -61,7 +61,7 @@ class Configuration:
 
 # MODEM configurations for various bitrates [kbps]
 bitrates = {
-    1: Configuration(Fs=8e3, Npoints=2, frequencies=[2e3]),
+    1: Configuration(Fs=8e3, Npoints=2, frequencies=[1e3]),
     2: Configuration(Fs=8e3, Npoints=4, frequencies=[2e3]),
     4: Configuration(Fs=8e3, Npoints=16, frequencies=[2e3]),
     8: Configuration(Fs=8e3, Npoints=16, frequencies=[1e3, 2e3]),
