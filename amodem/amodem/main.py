@@ -39,15 +39,14 @@ def send(config, src, dst, gain=1.0):
     #reader = stream.Reader(src, eof=True)
     #data = itertools.chain.from_iterable(reader)
     while True:
-        data = src.read(204*10)
+        data = src.read(203*5)
 
         if len(data) == 0:
             break
 
         send_bytes(config, data, dst, gain)
-	time.sleep(1)
     send_bytes(config, "", dst, gain)
-    send_bytes(config, "", dst, gain)
+#    send_bytes(config, "", dst, gain)
     return True
 
 '''

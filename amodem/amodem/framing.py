@@ -3,6 +3,7 @@ import functools
 import itertools
 import logging
 import struct
+import random
 from unireedsolomon import *
 from bchlib import *
 
@@ -71,8 +72,12 @@ class Framer:
 
     def _pack(self, block):
         frame = self.checksum.encode(block)
-        data = (struct.pack(self.prefix_fmt, len(frame)) + frame).ljust(self.block_size, "\x00")
-        print len(data)
+        #data = (struct.pack(self.prefix_fmt, len(frame)) + frame).ljust(self.block_size, "\x00")
+        data = struct.pack(self.prefix_fmt, len(frame)) + frame
+	padding = ''.join(chr(random.randint(0, 255)) for _ in xrange(self.block_size - len(data)))
+	data = data + padding
+        #data = data.ljust(block_size, '\xCE')
+        print self.block_size, len(data), len(block), len(frame), len(struct.pack(self.prefix_fmt, len(frame)) + frame), bch.ecc_bytes
         ecc = bch.encode(data)
         return bytearray(data + ecc)
 
