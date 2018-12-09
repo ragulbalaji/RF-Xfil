@@ -1,7 +1,5 @@
-# RF-Xfil
-## Started Jie Feng, Ragul & Andre Dec 2018 @ HackSmith v2.0 
-
-Prototype Toolkit for Data Exfiltration over Radio Frequencies
+# RF-Xfil | Prototype Toolkit for Data Exfiltration over Radio Frequencies
+## Started by Jie Feng, Ragul & Andre Dec 2018 @ HackSmith v2.0 
 
 ![HackSmith v2 Award](hacksmithv2/HackSmith_Award.jpg)
 
