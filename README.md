@@ -3,7 +3,7 @@
 
 Prototype Toolkit for Data Exfiltration over Radio Frequencies
 
-![HackSmith v2 Award](hacksmithv2/HackSmith_Award.jpg)
+![HackSmith v2 Award](misc/HackSmith_Award.jpg)
 
 Imagine your dongle (of which many modern devices depend on) is exfiltrating information over RF! Thats exactly the Proof-Of-Concept we managed to showcase at HackSmith v2 over the 8-9 Dec 2018 weekend.
 
