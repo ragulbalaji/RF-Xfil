@@ -32,7 +32,7 @@ sudo apt install build-essential cmake pkg-config libfftw3-dev libusb-1.0-0-dev 
 ./autoinstall.sh
 ```
 
-### Usage
+### Using RF-Xfil main features 
 
 figure out your microphone
 ```
