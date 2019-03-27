@@ -23,25 +23,14 @@ Liquid DSP
 ### Installation
 
 1. Install Dependencies required
+Example: ubuntu
+```
+sudo apt install cmake make
+```
 2. run autoinstall.sh
 ```
 ./autoinstall.sh
 ```
-
-
-### Advanced Installation
-
-Obtain fl2k sources from [osmo-fl2k](https://osmocom.org/projects/osmo-fl2k/wiki)
-```
-git clone git://git.osmocom.org/osmo-fl2k.git
-mkdir osmo-fl2k/build
-cd osmo-fl2k/build
-cmake ../ -DINSTALL_UDEV_RULES=ON
-make -j 3
-sudo make install
-sudo ldconfig
-```
-
 
 ### Usage
 
@@ -57,7 +46,8 @@ pacmd list-sources | grep name | grep monitor
         name: <alsa_output.pci-0000_00_1f.3.analog-stereo.monitor>
 ```
 
-Transmitting voice:
+Transmitting audio:
+Replace the '-d' with the one appriopriate to your purposes
 WBFM:
 ```
 pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | pv -B 256k | fl2k_fm - -s 130e6 -c 40e6 -i 44100
@@ -69,5 +59,7 @@ pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | csdr convert_i16_f | csd
 
 SSB(USB):
 ```
-pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | pv -B 256k | fl2k_fm - -s 130e6 -c 40e6 -i 44100
+pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | csdr convert_i16_f | csdr dsb_fc | csdr bandpass_fir_fft_cc 0 0.1 0.01 | csdr gain_ff 2 | csdr shift_addition_cc 0.2 | src/fl2k_iq - -s 130e6 -c 40e6 -i 44100
 ```
+
+\
