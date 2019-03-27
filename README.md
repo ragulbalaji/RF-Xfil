@@ -25,7 +25,7 @@ Liquid DSP
 1. Install Dependencies required
 Example: ubuntu
 ```
-sudo apt install build-essential cmake
+sudo apt install build-essential cmake pkg-config libfftw3-dev libusb-1.0-0-dev automake
 ```
 2. run autoinstall.sh
 ```
