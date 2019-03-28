@@ -35,8 +35,12 @@ sudo apt install build-essential cmake pkg-config libfftw3-dev libusb-1.0-0-dev 
 ./autoinstall.sh
 ```
 
+<<<<<<< HEAD
 ### Usage
 To find your sound input device:
+=======
+### Using RF-Xfil main features 
+>>>>>>> b7e93c6ed087e7aff17f9228eb25080f38d6317b
 
 #### Microphone
 ```

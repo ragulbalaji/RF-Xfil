@@ -28,3 +28,4 @@ cd ..
 #build fl2k_iq
 cd src
 gcc fl2k_iq.c -o fl2k_iq -losmo-fl2k -O2 -lliquid -pthread -lm
+cd ..
