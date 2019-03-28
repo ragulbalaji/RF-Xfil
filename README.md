@@ -17,6 +17,9 @@ Lets see what other overpowered embedded devices can be used to do mindblowing t
 Supported platforms: Linux
 osmo-fl2k works best with Linux
 
+### New Tools
+fl2k_iq: a tool that upconverters raw baseband I/Q to a frequency. Accepts signed 16 bit I/Q signals
+
 ### Dependencies
 osmo-fl2k
 CSDR
