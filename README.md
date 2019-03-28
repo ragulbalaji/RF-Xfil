@@ -13,6 +13,9 @@ We feel that more people should take an active interest in & do research into el
 
 Lets see what other overpowered embedded devices can be used to do mindblowing things.
 
+### Platforms
+Supported platforms: Linux
+osmo-fl2k works best with Linux
 
 ### Dependencies
 osmo-fl2k
@@ -33,14 +36,15 @@ sudo apt install build-essential cmake pkg-config libfftw3-dev libusb-1.0-0-dev 
 ```
 
 ### Usage
+To find your sound input device:
 
-figure out your microphone
+#### Microphone
 ```
 pacmd list-sources | grep alsa_input
         name: <alsa_input.pci-0000_00_1f.3.analog-stereo>
 ```
 
-figure out your sound output
+#### Monitor input
 ```
 pacmd list-sources | grep name | grep monitor
         name: <alsa_output.pci-0000_00_1f.3.analog-stereo.monitor>
@@ -48,18 +52,21 @@ pacmd list-sources | grep name | grep monitor
 
 Transmitting audio:
 Replace the '-d' with the one appriopriate to your purposes
-WBFM:
-```
-pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | pv -B 256k | fl2k_fm - -s 130e6 -c 40e6 -i 44100
-```
 AM:
 ```
 pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | csdr convert_i16_f | csdr dsb_fc | csdr add_dcoffset_cc | csdr convert_f_i16 | src/fl2k_iq - -s 130e6 -c 40e6 -i 44100
 ```
-
 SSB(USB):
 ```
 pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | csdr convert_i16_f | csdr dsb_fc | csdr bandpass_fir_fft_cc 0 0.1 0.01 | csdr gain_ff 2 | csdr shift_addition_cc 0.2 | src/fl2k_iq - -s 130e6 -c 40e6 -i 44100
 ```
 
-\
+WBFM:
+```
+pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | pv -B 256k | fl2k_fm - -s 130e6 -c 40e6 -i 44100
+```
+
+Additionally, you can use your own data modulator/demodulator such as (AudioNetwork)[https://github.com/robertrypula/AudioNetwork] or (amodem)[https://github.com/romanz/amodem]
+
+### Languages
+English only (translations welcome)

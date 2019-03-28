@@ -420,11 +420,11 @@ int main(int argc, char **argv)
 			delta_freq = (uint32_t)atof(optarg);
 			break;
 		case 'i':
-			input_freq = (uint32_t)atof(optarg);
+			input_freq = (uint32_t)atof(optarg)*2;
 			input_freq_specified = 1;
 			break;
 		case 's':
-			samp_rate = (uint32_t)atof(optarg)*2;
+			samp_rate = (uint32_t)atof(optarg);
 			break;
 		default:
 			usage();
