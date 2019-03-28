@@ -35,12 +35,8 @@ sudo apt install build-essential cmake pkg-config libfftw3-dev libusb-1.0-0-dev 
 ./autoinstall.sh
 ```
 
-<<<<<<< HEAD
-### Usage
+### Using RF-Xfil main features
 To find your sound input device:
-=======
-### Using RF-Xfil main features 
->>>>>>> b7e93c6ed087e7aff17f9228eb25080f38d6317b
 
 #### Microphone
 ```
@@ -72,5 +68,10 @@ pacat -r -d alsa_input.pci-0000_00_1f.3.analog-stereo | pv -B 256k | fl2k_fm - -
 
 Additionally, you can use your own data modulator/demodulator such as (AudioNetwork)[https://github.com/robertrypula/AudioNetwork] or (amodem)[https://github.com/romanz/amodem]
 
+### Limitations
+
+fl2k_iq does not work very well (sometimes not at all) when there isn't a constant carrier (like SSB modes). Hypothesis is that the chip itself switches power modes(?) which causes delays.
+
+fl2k_iq creates spurious signals at frequency +/- sample_frequency
 ### Languages
 English only (translations welcome)
