@@ -19,6 +19,7 @@ osmo-fl2k works best with Linux
 
 ### New Tools
 fl2k_iq: a tool that upconverters raw baseband I/Q to a frequency. Accepts signed 16 bit I/Q signals
+amodem-modified: amodem modified to use fl2k_fm
 
 ### Dependencies
 osmo-fl2k
